@@ -46,6 +46,16 @@ inoremap <expr><C-e> pumvisible() ? neocomplcache#cancel_popup() : "\<End>"
 "C-gで補完を元に戻す
 inoremap <expr><C-g> neocomplcache#undo_completion()
 
+""vimfiler
+
+
+""Unite.vim
+nnoremap <Space> <silent>
+nnoremap <Space>u :Unite
+nnoremap <Space>f :Unite file<CR>
+nnoremap <Space>c :Unite tab buffer<CR>
+nnoremap <Space>h :Unite file_mru directory_mru<CR>
+nnoremap <Space>b :Unite bookmark<CR>
 
 "----------------
 "last

@@ -78,9 +78,9 @@ set ambiwidth=double
 set helpheight=0
 set winminheight=0
 set writebackup
+set confirm
 
 """mappings
-map Q gQ
 "----------------
 "Syntax Highlight
 "----------------
@@ -96,28 +96,56 @@ set smarttab
 "set paste
 
 "最後のカーソル位置を復元する
-"autocmd BufReadPost * if line("'¥"") > 1 && line("'¥"") <= line("$") | exe "normal! g `¥"" | endif
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line('$') | exe "normal! g `\"" | endif
+
+"----------------
+"import
+"----------------
+source ~/vundle.vim
+set showcmd
+
+"----------------
+"Maps
+"----------------
+"QよりgQのほうがいい
+nnoremap Q gQ
+"Dがd$なので
+nnoremap D dd
+nnoremap C cc
+nnoremap cx s
+"nnoremap s :s/
+"nnoremap S :s<CR>
+"インデント調整用マッピング
+vnoremap < <gv
+vnoremap > >gv
+
+"Can't use on GNOME-Terminal?
+"nnoremap <F1> <silent>
+""compile command
+"nnoremap <F2>
+"nnoremap <F3>
+"nnoremap <F4>
+"nnoremap <F5>
+"nnoremap <F6>
+"nnoremap <F7>
+"nnoremap <F8>
+
+"tabpage and buffers
+nnoremap <Left> :tabp<CR>
+nnoremap <Right> :tabn<CR>
+nnoremap <Up> :bp<CR>
+nnoremap <Down> :bn<CR>
 
 "不要なマップを破棄します
 nnoremap ch <silent>
 nnoremap cj <silent>
 nnoremap ck <silent>
 nnoremap cl <silent>
+nnoremap s <silent>
+nnoremap S <silent>
 
 "hlsearchの切り替えを簡単にする
-nnoremap ch :hlsearch!<CR><C-L>
-
-"----------------
-"Maps
-"----------------
-nnoremap D dd
-nnoremap cx s
-nnoremap s :s/
-nnoremap S :s<CR>
-nnoremap C cc
-"インデント調整用マッピング
-vnoremap < <gv
-vnoremap > >gv
+nnoremap ch :setl hlsearch!<CR><C-L>
 
 "----------------
 "File Encoding Select
@@ -164,9 +192,3 @@ if has('iconv')
   unlet s:enc_jis
 endif
 
-"----------------
-"import
-"----------------
-source ~/vundle.vim
-
-set showcmd

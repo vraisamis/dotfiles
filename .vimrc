@@ -21,11 +21,10 @@ set incsearch
 "
 "
 "
-""""All Self Write VimRC""""
 """Global Settings
 "set scriptencoding utf8
 set lazyredraw
-colorscheme  sean
+colorscheme molokai
 
 """Tab Settings
 set tabstop=4
@@ -50,6 +49,7 @@ set foldlevelstart=1
 set foldmethod=indent
 set foldignore+=/*
 set foldignore+=<Space>
+set nofen
 "IMを切り替えるキーの提示
 set imactivatekey=S-C-space
 "行番号の表示
@@ -146,6 +146,12 @@ nnoremap S <silent>
 
 "hlsearchの切り替えを簡単にする
 nnoremap ch :setl hlsearch!<CR><C-L>
+
+"簡易コンパイル
+nnoremap [action] <nop>
+nmap ; [action]
+nnoremap [action]c :make %:r<CR>
+nnoremap [action]e :!./%:r<CR>
 
 "----------------
 "File Encoding Select

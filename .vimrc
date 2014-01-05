@@ -119,16 +119,6 @@ nnoremap cx s
 vnoremap < <gv
 vnoremap > >gv
 
-"Can't use on GNOME-Terminal?
-"nnoremap <F1> <silent>
-""compile command
-"nnoremap <F2>
-"nnoremap <F3>
-"nnoremap <F4>
-"nnoremap <F5>
-"nnoremap <F6>
-"nnoremap <F7>
-"nnoremap <F8>
 
 "tabpage and buffers
 nnoremap <Left> :tabp<CR>

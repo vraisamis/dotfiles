@@ -24,7 +24,13 @@ set incsearch
 """Global Settings
 "set scriptencoding utf8
 set lazyredraw
-colorscheme molokai
+if has("unix")
+	colorscheme sean
+elseif has("win32unix")
+	colorscheme candycode
+else
+	colorscheme molokai
+endif
 
 """Tab Settings
 set tabstop=4

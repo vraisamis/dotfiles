@@ -21,6 +21,8 @@ Bundle 'Shougo/neocomplcache'
 "Bundle 'tpope/vim-abolish'
 ""tcomment コメントアウトトグル
 "Bundle 'tomtom/tcomment_vim'
+"" platex.vim コンパイルできる
+Bundle 'lambdalisue/platex.vim'
 
 "----------------
 "Plugin option
@@ -56,6 +58,16 @@ nnoremap <Space>f :Unite file<CR>
 nnoremap <Space>c :Unite tab buffer<CR>
 nnoremap <Space>h :Unite file_mru directory_mru<CR>
 nnoremap <Space>b :Unite bookmark<CR>
+
+""platex.vim
+let g:platex_suite_main_file       = "index"
+let g:platex_suite_latex_compiler  = "platex"
+let g:platex_suite_dvipdf_compiler = "dvipdfmx"
+let g:platex_suite_viewer          = "evince"
+augroup platex
+	autocmd!
+	autocmd BufNewFile,BufRead *.tex let g:platex_suite_main_file = "%:r"
+augroup END
 
 "----------------
 "last

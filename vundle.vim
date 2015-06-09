@@ -23,7 +23,8 @@ Bundle 'Shougo/neocomplcache'
 "Bundle 'tomtom/tcomment_vim'
 "" platex.vim コンパイルできる
 Bundle 'lambdalisue/platex.vim'
-
+""quickrun コードのお手軽実行
+Bundle 'thinca/vim-quickrun'
 "----------------
 "Plugin option
 "----------------
@@ -70,6 +71,13 @@ augroup platex
 	autocmd BufNewFile,BufRead *.tex let g:platex_suite_main_file = "%:r"
 augroup END
 
+""vim-quickrun
+let g:quickrun_config = {
+\	"cpp": {
+\		'command': 'g++',
+\		'cmdopt': '-std=c++11'
+\	}
+\}
 "----------------
 "last
 "----------------

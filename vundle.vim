@@ -13,6 +13,9 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 ""unite 融合プラグイン
 Bundle 'Shougo/unite.vim'
+""unite-outline コードアウトライン(fork版)
+Bundle 'Shougo/unite-outline'
+
 ""vimfiler ファイラー
 Bundle 'Shougo/vimfiler'
 ""neocomplcache 自動補完
@@ -25,6 +28,11 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'lambdalisue/platex.vim'
 ""quickrun コードのお手軽実行
 Bundle 'thinca/vim-quickrun'
+""lightline 情報行強化
+Bundle 'itchyny/lightline.vim'
+""vim-indent-guides インデント可視化
+Bundle 'nathanaelkane/vim-indent-guides'
+
 "----------------
 "Plugin option
 "----------------
@@ -60,6 +68,8 @@ nnoremap [unite]f :Unite file<CR>
 nnoremap [unite]c :Unite tab buffer<CR>
 nnoremap [unite]h :Unite file_mru directory_mru<CR>
 nnoremap [unite]b :Unite bookmark<CR>
+""unite-outline
+nnoremap [unite]o :Unite outline<CR>
 
 ""platex.vim
 let g:platex_suite_main_file       = "index"
@@ -78,6 +88,20 @@ let g:quickrun_config = {
 \		'cmdopt': '-std=c++11'
 \	}
 \}
+
+""lightline
+set laststatus=2
+let g:lightline = {
+\	'colorscheme': 'wombat',
+\}
+
+""vim-indent-guides
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=1
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=235
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=236
+let g:indent_guides_guide_size=1
 "----------------
 "last
 "----------------

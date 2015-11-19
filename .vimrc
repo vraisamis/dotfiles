@@ -25,7 +25,7 @@ set incsearch
 "set scriptencoding utf8
 set lazyredraw
 if has("unix")
-	colorscheme sean
+	colorscheme molokai
 elseif has("win32unix")
 	colorscheme candycode
 else
@@ -109,7 +109,15 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line('$') | exe "norm
 "----------------
 source ~/.vim/plugin.vimrc
 set showcmd
+" add tag filepath
+set tags+=~/.vim/tags/c.tags
+set tags+=~/.vim/tags/cpp.tags
+set tags+=~/.vim/tags/gl.tags
 
+"----------------
+"Omni Completion
+"----------------
+set omnifunc=syntaxcomplete#Complete
 "----------------
 "Maps
 "----------------

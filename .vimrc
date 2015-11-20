@@ -157,6 +157,9 @@ nmap ; [action]
 nnoremap [action]c :make %:r<CR>
 nnoremap [action]e :!./%:r<CR>
 
+"補完候補を<C-j><C-k>で移動
+inoremap <C-j> <C-n>
+inoremap <C-k> <C-p>
 "----------------
 "File Encoding Select
 "----------------

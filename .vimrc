@@ -110,13 +110,27 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line('$') | exe "norm
 source ~/.vim/plugin.vimrc
 set showcmd
 " add tag filepath
-set tags+=~/.vim/tags/c.tags
-set tags+=~/.vim/tags/cpp.tags
-set tags+=~/.vim/tags/gl.tags
 
+"---------------
+"language settings
+"----------------
+function! s:cpp()
+	setl path+=/usr/include/c++/4.8.4
+endfunction
+
+augroup vimrc-cpp
+	autocmd!
+	autocmd FileType cpp call s:cpp()
+augroup END
 "----------------
 "Omni Completion
 "----------------
+setl tags+=~/.vim/tags/C/c.tags
+setl tags+=~/.vim/tags/C/cpp.tags
+setl tags+=~/.vim/tags/C/gl.tags
+setl tags+=~/.vim/tags/CPP/c.tags
+setl tags+=~/.vim/tags/CPP/cpp.tags
+setl tags+=~/.vim/tags/CPP/gl.tags
 set omnifunc=syntaxcomplete#Complete
 "----------------
 "Maps

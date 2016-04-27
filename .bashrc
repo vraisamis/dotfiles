@@ -126,3 +126,10 @@ if [ -d "/opt/android-studio/bin" ] ; then
 	PATH="/opt/android-studio/bin:$PATH"
 fi
 
+mycd() {
+	echo ---- at `pwd` ----
+	\cd $@
+	l
+}
+alias cd=mycd
+

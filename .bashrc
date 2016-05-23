@@ -127,8 +127,8 @@ if [ -d "/opt/android-studio/bin" ] ; then
 fi
 
 mycd() {
-	echo ---- at `pwd` ----
 	\cd $@
+	echo ---- at `pwd` ----
 	l
 }
 alias cd=mycd

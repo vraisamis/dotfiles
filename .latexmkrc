@@ -5,3 +5,4 @@ $dvipdf = 'dvipdfmx %O -o %D %S';
 $makeindex = 'mendex %O -o %D %S';
 $max_repeat = 10;
 $pdf_previewer = 'xdg-open';
+$pdflatex = 'lualatex %O -interaction=nonstopmode %S';

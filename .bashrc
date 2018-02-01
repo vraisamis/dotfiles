@@ -113,10 +113,10 @@ if [ -d "$HOME/.local/bin" ] ; then
 	PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -d "$HOME/dotfiles" ] ; then
-	source $HOME/dotfiles/bash.rc
-fi
-
 . $HOME/torch/install/bin/torch-activate
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+if [ -d "$HOME/dotfiles" ] ; then
+	source $HOME/dotfiles/bash.rc
+fi

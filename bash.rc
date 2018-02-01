@@ -28,3 +28,5 @@ export XDG_CONFIG_HOME=$HOME/.config
 if [ -f $HOME/dotfiles/fzf.rc ]; then
 	source ~/dotfiles/fzf.rc
 fi
+
+alias vimfiler='nvim -c :VimFiler'

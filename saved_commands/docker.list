@@ -1,0 +1,4 @@
+docker ps
+docker-compose up
+docker-compose exec app /bin/bash
+docker logs -f --tail 0 `docker ps | tail -n +2 | fzf | sed -e 's/[[:space:]][[:space:]]*.*//g'`

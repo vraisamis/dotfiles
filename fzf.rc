@@ -179,14 +179,15 @@ fstash() {
   done
 }
 
+export MY_COMMAND_LIST=$HOME/dotfiles/saved_commands
+function __my_fzf_commands__() {
+  local line
+  shopt -u nocaseglob nocasematch
+  line=$(
+    find $MY_COMMAND_LIST -name "*.list" -or -name "*.list.unstage" | xargs -n 1 grep -H "" | sed 's/^.*\/\([^:]*\)\.list\(\.unstage\)\{0,1\}:/\1: /' |
+    FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS +m" $(__fzfcmd) |
+    sed 's/^[[:alnum:]]*: //')
+  echo "$line"
+}
 
-
-
-
-
-
-
-
-
-
-
+bind '"\C-f": " \C-e\C-u`__my_fzf_commands__`\e\C-e\er\e^"'

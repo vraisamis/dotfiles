@@ -189,5 +189,6 @@ function __my_fzf_commands__() {
     sed 's/^[[:alnum:]]*: //')
   echo "$line"
 }
+export FZF_CTRL_R_OPTS="--bind \"ctrl-v:execute-silent(echo '{}' | sed 's/ *[0-9][0-9]* *//' >> $MY_COMMAND_LIST/tmp.list.unstage)\" $FZF_CTRL_R_OPTS"
 
 bind '"\C-f": " \C-e\C-u`__my_fzf_commands__`\e\C-e\er\e^"'

@@ -3,3 +3,4 @@ echo sample
 echo ls
 ls
 ps aux
+git diff `git branch -vv | fzf +m | awk '{print $1}' | sed "s/.* //"` --name-only --diff-filter=M
